@@ -91,7 +91,20 @@ class VescUart
 		 * @param      duty  - The desired duty (0.0-1.0)
 		 */
 		void setDuty(float duty);
+    
+        /**
+         * @brief      Sends a command to VESC to control the motor position
+         * @param      position - a float of the position in degrees for the motor
+         * @param      num - an integer representing which serial port to use (0=Serial; 1=Serial1; 2=Serial2; 3=Serial3;)
+         */
+        void VescUartSetPosition(float position, int num) ;
 
+        /**
+         * @brief      Sends a command to VESC to control the motor position
+         * @param      position - a float of the position in degrees for the motor
+         */
+        void VescUartSetPosition(float position) ;
+    
 		/**
 		 * @brief      Help Function to print struct dataPackage over Serial for Debug
 		 */

@@ -294,6 +294,19 @@ void VescUart::setDuty(float duty) {
 	packSendPayload(payload, 5);
 }
 
+void VescUartSetPosition(float position, int num) {
+    int32_t index = 0;
+    uint8_t payload[5];
+
+    payload[index++] = COMM_SET_POS ;
+    buffer_append_int32(payload, (int32_t)(position * 1000000.0), &index);
+    PackSendPayload(payload, 5);
+}
+
+void VescUartSetPosition(float position) {
+    VescUartSetPosition(position, 0);
+}
+
 void VescUart::serialPrint(uint8_t * data, int len) {
 	if(debugPort != NULL){
 		for (int i = 0; i <= len; i++)
